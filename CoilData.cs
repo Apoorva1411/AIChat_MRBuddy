@@ -45,7 +45,7 @@ namespace MRBuddy
 
             List<CoilModel> lstCoil = GetCoilList();
 
-            var items = lstCoil.SingleOrDefault(x => x.CoilName.ToLower() == coilName.ToLower());            
+            var items = lstCoil.SingleOrDefault(x => x.CoilName.ToLower().Trim().Replace(" ", string.Empty) == coilName.ToLower().Replace(" ", string.Empty));
 
             return items;
         }
@@ -67,14 +67,15 @@ namespace MRBuddy
             PopulateCoilCombintions();
             string _retval = "Coil Combination is not recommended";
             coilname1 = coilname1.Replace(" ", "");
+            coilname2 = coilname2.Replace(" ", "");
             if (_coilcombinationlist.ContainsKey(coilname1.ToLower()))
             {
-                bool combine = SearchList(_coilcombinationlist[coilname1], coilname2);
+                bool combine = SearchList(_coilcombinationlist[coilname1.ToLower()], coilname2);
                 if (combine) _retval = "Recommended coil combination: Dual or multi coil imaging can be performed.";
             }
             else if (_coilcombinationlist.ContainsKey(coilname2.ToLower()))
             {
-                bool combine = SearchList(_coilcombinationlist[coilname2], coilname1);
+                bool combine = SearchList(_coilcombinationlist[coilname2.ToLower()], coilname1);
                 if (combine) _retval = "Recommended coil combination: Dual or multi coil imaging can be performed.";
             }
 

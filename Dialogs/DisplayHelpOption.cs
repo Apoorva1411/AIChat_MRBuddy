@@ -31,10 +31,10 @@ namespace MRBuddy
             mediaCardProperties.CardTitle = "Hello !! I can assist you with following queries?";
             Media_Cards media_Cards = new Media_Cards();
             List<string> options = new List<string>();
-            options.Add("Need help with Examcards");
-            options.Add("Need help with Coil Combination");
-            options.Add("Need help with Coil Information");
-            options.Add("Need help with T/R Coil Information");
+            options.Add("Examcards");
+            options.Add("Coil Combination");
+            options.Add("Coil Information");
+            options.Add("T/R Coil queries");
 
             var promptMessage = MessageFactory.Attachment(media_Cards.HeroCard(options, mediaCardProperties));
             await stepContext.Context.SendActivityAsync(promptMessage, cancellationToken);

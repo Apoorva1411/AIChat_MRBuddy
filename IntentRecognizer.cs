@@ -12,10 +12,10 @@ namespace MRBuddy
             {
                 Intents = new List<IntentPattern>
                 {                    
-                     new IntentPattern("combination", "(?i)Need help with coil combination"),
-                     new IntentPattern("information", "(?i)Need help with coil information"),
-                     new IntentPattern("examcard", "(?i)Examcard"),
-                     new IntentPattern("coil","(?i)Need help with T/R Coil Information"),
+                     new IntentPattern("combination", "(?i)coil combination"),
+                     new IntentPattern("information", "(?i)Coil Information"),
+                     new IntentPattern("examcard", "(?i)Examcards"),
+                     new IntentPattern("coil","(?i)T/R Coil queries"),
                      new IntentPattern("default" , "(?i)default"),
                      new IntentPattern("default" , "(?i)menu"),
                      new IntentPattern("exit", "(?i)exit")

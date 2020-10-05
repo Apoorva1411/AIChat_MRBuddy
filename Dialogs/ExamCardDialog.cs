@@ -10,8 +10,7 @@ using System.Threading.Tasks;
 namespace MRBuddy.Dialogs
 {
     public class ExamCardDialog : ComponentDialog
-    {
-       
+    {      
         public ExamCardDialog()
             : base(nameof(ExamCardDialog))
         {
@@ -29,7 +28,6 @@ namespace MRBuddy.Dialogs
 
             InitialDialogId = nameof(WaterfallDialog);
         }
-
         private async Task<DialogTurnResult> ViewHelp(WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {            
             var message = stepContext.Context.Activity.Text.ToLower();
@@ -50,7 +48,6 @@ namespace MRBuddy.Dialogs
             
             return await stepContext.NextAsync(null, cancellationToken);
         }
-
         private Attachment GetVideoPromptMessage()
         {
             MRBuddyConstants _mrBuddyConstants = new MRBuddyConstants();
@@ -82,7 +79,6 @@ namespace MRBuddy.Dialogs
             videoAttachment = _mediaCardObj.VideoAttachment(mediaCardPropertiesObj);
             return videoAttachment;
         }
-
         private Attachment GetDocumentPromptMessage()
         {
             MRBuddyConstants _mrBuddyConstants = new MRBuddyConstants();
@@ -114,14 +110,13 @@ namespace MRBuddy.Dialogs
             docAttachment = _mediaCardObj.FileAttachment(mediaCardPropertiesObj);
             return docAttachment;
         }
-
         private async Task<DialogTurnResult> SelectHelpType(WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
             
             var message = stepContext.Context.Activity.Text;
             SelectedExamcardQuery = message.ToLower();
 
-            var reply = MessageFactory.Text("What kind of help you prefer");
+            var reply = MessageFactory.Text("Please choose one of the option below");
             reply.SuggestedActions = new SuggestedActions()
             {
                 Actions = new List<CardAction>()
@@ -135,7 +130,6 @@ namespace MRBuddy.Dialogs
             return new DialogTurnResult(DialogTurnStatus.Waiting);
 
         }
-
         private async Task<DialogTurnResult> FinalStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
             var reply = MessageFactory.Text("Do you have other queries");
@@ -151,10 +145,9 @@ namespace MRBuddy.Dialogs
             await stepContext.Context.SendActivityAsync(reply, cancellationToken);
             return await stepContext.EndDialogAsync(null, cancellationToken);
         }
-
         private async Task<DialogTurnResult> InitialStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
-            var reply = MessageFactory.Text("Select an option");
+            var reply = MessageFactory.Text("Select an topic to know more about it");
             reply.SuggestedActions = new SuggestedActions()
             {
                 Actions = new List<CardAction>()
@@ -168,7 +161,6 @@ namespace MRBuddy.Dialogs
             await stepContext.Context.SendActivityAsync(reply, cancellationToken);
             return new DialogTurnResult(DialogTurnStatus.Waiting);
         }
-
         private string SelectedExamcardQuery { get; set; }
     }
 }
