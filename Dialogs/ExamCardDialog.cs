@@ -66,6 +66,7 @@ namespace MRBuddy.Dialogs
             {
                 mediaCardPropertiesObj.CardTitle = "Import ExamCard Video";
                 mediaCardPropertiesObj.CardSubtitle = "This is the Sample video of how to Import ExamCard";
+                mediaCardPropertiesObj.CardText = _mrBuddyConstants.ImportExamCardVideoPath;
                 mediaCardPropertiesObj.URL = _mrBuddyConstants.ImportExamCardVideoPath;
 
             }
@@ -73,6 +74,7 @@ namespace MRBuddy.Dialogs
             {
                 mediaCardPropertiesObj.CardTitle = "Export ExamCard Video";
                 mediaCardPropertiesObj.CardSubtitle = "This is the Sample video of how to Export ExamCard";
+                mediaCardPropertiesObj.CardText = _mrBuddyConstants.ExportExamImportVideoPath;
                 mediaCardPropertiesObj.URL = _mrBuddyConstants.ExportExamImportVideoPath;
             }
 
